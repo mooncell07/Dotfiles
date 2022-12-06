@@ -5,13 +5,9 @@ This repo is for tracking Dotfiles for my system.\
 # Screenshots:
 *(ik it's not properly following the Catppuccin Style Guide smh)*
 
-- **Wallpaper that i stole from somewhere**
+<img src="assets/bg.png">
 
-<img src="assets/wallpaper.png">
-
-- **Freak you Qtile**
-
-<img src="assets/terminals.png">
+<img src="assets/apps.png">
 
 # Specs:
 - **OS**: Arch Linux
@@ -19,13 +15,7 @@ This repo is for tracking Dotfiles for my system.\
 - **Terminal**: Alacritty
 - **Compositor**: Picom
 - **Theme**: [Catppuccin Mocha](https://github.com/catppuccin/catppuccin)
-- **Editor**: Neovim (conf WIP)
-
-# Note (to myself):
-will make an install script later smh
-
-- Install *noto-fonts, noto-emojis, noto-fonts-cjk, noto-fonts-extra, ttf-croscore, ttf-iosevka* fonts.
-- yeah thats all ig
+- **Editor**: Neovim (conf: AstroNvim)
 
 
 ### Heavily Inspired from this stinky's ([zeffo](https://github.com/zeffo)) setup.

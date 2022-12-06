@@ -11,7 +11,7 @@ groups = []
 
 for n in range(5):
     name = str(n + 1)
-    grp = Group(name, layout="columns", label="⬤")
+    grp = Group(name, layout="columns", label="")
     groups.append(grp)
 
     keys.extend(
@@ -24,14 +24,14 @@ for n in range(5):
 
 layouts = [
     layout.Columns(
-        border_focus=Mocha.ROSEWATER,
+        border_focus=Mocha.TEXT,
         border_normal=Mocha.MANTLE,
         border_width=3,
         margin=6,
     ),
     layout.Max(),
     layout.Matrix(
-        border_focus=Mocha.ROSEWATER,
+        border_focus=Mocha.TEXT,
         border_normal=Mocha.MANTLE,
         border_width=3,
         margin=6,

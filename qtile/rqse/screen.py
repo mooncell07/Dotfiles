@@ -4,30 +4,49 @@ from rqse.color import Mocha
 
 __all__ = ("screens", "widget_defaults", "extension_defaults")
 
-widget_defaults = dict(font="iosevka", fontsize=13, padding=10, background=Mocha.BASE)
+widget_defaults = dict(
+    font="RobotoMono Nerd Font", fontsize=12, padding=10, background=Mocha.BASE
+)
 extension_defaults = widget_defaults.copy()
 
 
-def _separate(bg: str, fg: str) -> widget.TextBox:
-    return widget.TextBox(
-        text="（",
-        background=bg,
-        foreground=fg,
-        padding=-20,
-        fontsize=71,
-    )
+class W_Logic:
+    def __init__(self, color):
+        self.color = color
+        self.state = 0
+
+    def reset(self):
+        self.state = 0
+
+    def set_sep(self) -> widget.TextBox:
+        color = self.color
+
+        if not self.state:
+            color = color[::-1]
+            self.state = 1
+        else:
+            self.reset()
+
+        return widget.TextBox(
+            text="",
+            background=color[0],
+            foreground=color[1],
+            padding=0,
+            fontsize=30,
+        )
+
+    def set_style(self) -> dict:
+        col = {"foreground": Mocha.MANTLE, "fontsize": 14}
+
+        if self.state:
+            col["background"] = self.color[0]
+        else:
+            col["background"] = self.color[1]
+
+        return col
 
 
-def _set_defaults(rose: bool = False) -> dict:
-    col = {"foreground": Mocha.MANTLE}
-
-    if rose:
-        col["background"] = Mocha.ROSEWATER
-    else:
-        col["background"] = Mocha.RED
-
-    return col
-
+w_logic = W_Logic(color=[Mocha.TEXT, Mocha.FLAMINGO])
 
 screens = [
     Screen(
@@ -38,37 +57,36 @@ screens = [
                 widget.GroupBox(
                     highlight_method="line",
                     highlight_color=[Mocha.BASE, Mocha.BASE],
-                    active=Mocha.ROSEWATER,
-                    this_current_screen_border=Mocha.RED,
+                    active=Mocha.TEXT,
+                    this_current_screen_border=Mocha.TEXT,
                     center_aligned=False,
                 ),
-                widget.Prompt(foreground=Mocha.ROSEWATER, prompt="➜ "),
+                widget.Prompt(foreground=Mocha.TEXT, prompt=" "),
                 widget.Spacer(),
-                _separate(Mocha.BASE, Mocha.ROSEWATER),
-                widget.Clock(**_set_defaults(rose=True), format="🕑 %H:%M"),
-                _separate(Mocha.ROSEWATER, Mocha.RED),
-                widget.Memory(**_set_defaults(), measure_mem="G"),
-                _separate(Mocha.RED, Mocha.ROSEWATER),
-                widget.Net(
-                    **_set_defaults(rose=True), prefix="M", format="{down} ⥯{up}"
+                widget.TextBox(
+                    text="",
+                    background=Mocha.BASE,
+                    foreground=Mocha.FLAMINGO,
+                    padding=0,
+                    fontsize=30,
                 ),
-                _separate(Mocha.ROSEWATER, Mocha.RED),
-                widget.CPU(**_set_defaults(), format="CPU {freq_current}GHz"),
-                _separate(Mocha.RED, Mocha.ROSEWATER),
+                widget.Clock(**w_logic.set_style(), format="  %H:%M"),
+                w_logic.set_sep(),
+                widget.Memory(**w_logic.set_style(), measure_mem="G", fmt=" {}"),
+                w_logic.set_sep(),
+                widget.CPU(**w_logic.set_style(), format="  {freq_current}GHz"),
+                w_logic.set_sep(),
                 widget.PulseVolume(
-                    **_set_defaults(rose=True), fmt="Vol {}", volume_app="pavucontrol"
+                    **w_logic.set_style(), fmt="墳  {}", volume_app="pavucontrol"
                 ),
-                _separate(Mocha.ROSEWATER, Mocha.RED),
+                w_logic.set_sep(),
                 widget.QuickExit(
-                    **_set_defaults(),
-                    default_text="⏻ ",
-                    padding=7,
-                    fontsize=15,
-                    countdown_format="{}s"
+                    **w_logic.set_style(), default_text="  ", countdown_format="{}s"
                 ),
             ],
             size=30,
             margin=[8, 8, 1, 8],
+            background="#00000000",
         ),
     ),
 ]
