@@ -15,7 +15,7 @@ No bar or widget at all.
 
 # SSs
 <img src=https://github.com/mooncell07/Dotfiles/blob/master/v2/Pictures/astro.jpg>
-<img src=https://github.com/mooncell07/Dotfiles/blob/master/v2/Pictures/workspace.jpeg>
+<img src=https://github.com/mooncell07/Dotfiles/blob/master/v2/Pictures/workspace.png>
 
 # Credits
 - The overall setup is themed with [Gruvbox](https://github.com/morhetz/gruvbox).
