@@ -1,0 +1,69 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces",
+    ],
+    "modules-center": [
+	"sway/mode",
+	"clock",
+    ],
+    "modules-right": [
+	"custom/spotify",
+	"tray",
+        "pulseaudio",
+        "network",
+        "custom/power",
+    ],
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        // "icon-size": 21,	
+        "spacing": 20
+    },
+
+    "custom/spotify": {
+	"exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player spotify",
+	"format": "{}",
+	"return-type": "json",
+    	"on-click": "playerctl play-pause",
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+	"format": "  {:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "  {:%Y-%m-%d}"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "  ",
+        "format-disconnected": " ",
+	"on-click": "exec nm-connection-editor"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "",
+	"format-muted": "",
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : " ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "exec shutdown now",
+			"reboot": "exec reboot",
+			"suspend": "exec systemctl suspend",
+			"hibernate": "exec systemctl hibernate"
+		}
+    }
+}
