@@ -14,8 +14,8 @@ have tried to limit the package count by alot. The installation only contains -
 No bar or widget at all.
 
 # SSs
-<img src=https://github.com/mooncell07/Dotfiles/blob/master/v2/Pictures/astro.jpg>
-<img src=https://github.com/mooncell07/Dotfiles/blob/master/v2/Pictures/workspace.png>
+<img src=https://github.com/mooncell07/Dotfiles/blob/v2/Pictures/astro.jpg>
+<img src=https://github.com/mooncell07/Dotfiles/blob/v2/Pictures/workspace.png>
 
 # Credits
 - The overall setup is themed with [Gruvbox](https://github.com/morhetz/gruvbox).
