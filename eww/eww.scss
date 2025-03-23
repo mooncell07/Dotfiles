@@ -1,0 +1,47 @@
+@import '/home/nova/.config/eww/rose-pine.scss';
+
+* {
+    all: unset;
+    font-family: "Roboto";
+    font-size: 25px;
+}
+
+
+.powermenu-window {
+    background: $surface; 
+    padding: 20px;
+    color: $text;
+}
+
+
+.powermenu-button {
+    background: $overlay;
+    margin: 20px;
+    padding: 5px;
+  }
+
+.powermenu-button:hover {
+   background: lighten($overlay, 10%);
+}
+
+.powermenu-lockscreen-button {
+    color: $rose;
+}
+
+.powermenu-logout-button {
+    color: $iris;
+}
+
+.powermenu-poweroff-button {
+    color: $gold;
+    padding-right: 10px;
+}
+
+.powermenu-reboot-button {
+    color: $love;
+    padding-right: 10px;
+}
+                     // (powermenu-lockscreen-button)
+                     // (powermenu-logout-button)
+                     // (powermenu-poweroff-button)
+                     // (powermenu-reboot-button)
