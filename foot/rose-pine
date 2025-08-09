@@ -1,10 +1,8 @@
 # -*- conf -*-
 # Rosé Pine
 
-[cursor]
-color=191724 e0def4 
-
 [colors]
+cursor=191724 e0def4
 background=191724 
 foreground=e0def4 
 

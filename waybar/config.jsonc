@@ -4,7 +4,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 20, // Waybar height (to be removed for auto height)
     "width": 1337, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 5, // Gaps between modules (4px)
     "margin-top": 10,
     // Choose the order of the modules
     "modules-left": [
@@ -41,7 +41,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% M"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -70,7 +70,7 @@
         "on-click": "pavucontrol"
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : " ",
 		"tooltip": false,
 		"on-click": "eww open powermenu-window",
 		"on-click-middle": "eww close powermenu-window"

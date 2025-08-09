@@ -1,6 +1,6 @@
 configuration {
 	modi:				"drun";
-	font:				"Rubik 11";
+	font:				"Roboto 11";
 	show-icons:                     true;
 	icon-theme: 			"Reversal-dark";
 	display-drun: 			"";
@@ -11,11 +11,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-	bg:				#00141d;
-	fg:				#b3e5fc;
-	accent:				#687363;
-	button:				#001A26;
-	border:				#28b6f6;
+	bg:				#26233a;
+	fg:				#e0def4;
+	accent:				#eb6f92;
+	button:				#393552;
+	border:				#eb6f92;
 
 	background-color:		@bg;
 	text-color:			@fg;
