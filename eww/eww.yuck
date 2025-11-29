@@ -43,7 +43,7 @@
 
 (defwidget powermenu-logout-button []
           (powermenu-button :label "󰍃"
-                            :onclick "sway exit"
+                            :onclick "niri msg action quit"
                             :class "powermenu-logout-button"
           )
 )
@@ -93,4 +93,3 @@
            :wm-ignore true
            (powermenu-window)
 )
-

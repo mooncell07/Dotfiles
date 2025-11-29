@@ -1,4 +1,4 @@
-@import '/home/nova/.config/eww/rose-pine.scss';
+@import '/home/nova/.config/eww/macchiato.scss';
 
 * {
     all: unset;
@@ -25,20 +25,20 @@
 }
 
 .powermenu-lockscreen-button {
-    color: $rose;
+    color: $red;
 }
 
 .powermenu-logout-button {
-    color: $iris;
+    color: $blue;
 }
 
 .powermenu-poweroff-button {
-    color: $gold;
+    color: $orange;
     padding-right: 10px;
 }
 
 .powermenu-reboot-button {
-    color: $love;
+    color: $pink;
     padding-right: 10px;
 }
                      // (powermenu-lockscreen-button)
