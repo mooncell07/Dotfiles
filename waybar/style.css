@@ -1,78 +1,98 @@
+@import "./rose-pine.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto;
+    font-family: JetBrainsMono Nerd Font;
     font-size: 12px;
-    font-weight: bold;
 }
 
 window#waybar {
-    background-color: rgb(36, 39, 58);
-    color: #ffffff;
+    background-color: @base;
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+#clock,
+#pulseaudio,
+#temperature,
+#cpu,
+#memory,
+#disk,
+#tray,
+#custom-shutdown,
+#custom-reboot,
+#custom-quit,
+#custom-lock
+{
+    color: @base;
+    padding: 0 8px;
 }
 
-
-window#waybar.termite {
-    background-color: #3F3F3F;
+#tray,
+#hardware,
+#pulseaudio,
+#clock,
+#power{
+    border-radius: 10px
 }
 
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
+#tray {
+    background-color: @pine;
+}
+
+#hardware {
+    background-color: @iris;
+}
+
+#clock {
+    background-color: @rose;
+}
+
+#pulseaudio {
+    background-color: @foam;
+}
+
+#power {
+    background-color: @love;
+}
+
+#workspaces {
+    border-radius: 0px 10px 10px 0px;
+    background-color: @surface;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
-    color: #cad3f5;
+    color: @muted;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    color: @text;
 }
 
 #workspaces button.focused, #workspaces button.active {
-    box-shadow: inset 0 -3px #cad3f5;
+    color: @text;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: @base;
+    background-color: @love;
 }
 
-
-#clock,
-#cpu,
-#memory,
-#temperature,
-#network,
-#pulseaudio,
-#tray {
-    padding: 0 10px;
-    color: #cad3f5;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
+#window {
+    color: @subtle;
+    font-style: italic;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -93,9 +113,4 @@ button:hover {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
-
-#custom-power {
-    color: #cad3f5;
-}
-
 

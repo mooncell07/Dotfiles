@@ -1,22 +1,21 @@
 // -*- mode: jsonc -*-
 {
-    "height": 18,
+    "height": 24,
     "spacing": 4,
     "modules-left": [
         "niri/workspaces",
-        "tray"
     ],
     "modules-center": [
-        "clock"
+        "niri/window",
     ],
 
     "modules-right": [
+        "cava",
         "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "custom/power"
+        "group/hardware",
+        "clock",
+        "tray",
+        "group/power"
     ],
     "niri/workspaces": {
          "disable-scroll": true,
@@ -28,37 +27,51 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     },
     "cpu": {
-        "format": "",
+        "format": "{usage}%  ",
     },
     "memory": {
-        "format": ""
+        "format": "{percentage}%  "
+    },
+    "disk": {
+        "format": "{percentage_used}%  ",
+        "interval": 30,
+        "path": "/"
     },
     "temperature": {
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
         "critical-threshold": 80,
-        "format": "{icon}",
-        "format-icons": ["", "", ""]
-    },
-    "network": {
-        "format-wifi": "{icon}",
-        "tooltip-format": "{essid} ({ifname}) via {gwaddr} | {signalStrength} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "󰤭",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"]
-        
-        
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
     },
 
     "pulseaudio": {
-        "format": "{icon}    {format_source}",
-        "format-muted": "   {format_source}",
-        "format-source": "",
-        "format-source-muted": " ",
+        "format": "{volume}% {icon} ",
+        "format-muted": " ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -70,10 +83,57 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/power": {
+
+    "custom/shutdown": {
         "format" : " ",
-		    "tooltip": false,
-		    "on-click": "eww open powermenu-window",
-		    "on-click-middle": "eww close powermenu-window"
+        "tooltip": false,
+        "on-click": "shutdown now"
+    },
+
+    "custom/reboot": {
+        "format" : " ",
+        "tooltip": false,
+        "on-click": "reboot",
+    },
+
+    "custom/quit": {
+        "format": "󰍃 ",
+        "tooltip": false,
+        "on-click": "niri msg action quit",
+    },
+
+    "custom/lock": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "swaylock",
+    },
+
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/shutdown",
+            "custom/reboot",
+            "custom/quit",
+            "custom/lock"
+        ]
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature",
+            "disk"
+        ]
     }
+
 }
