@@ -13,6 +13,7 @@ window#waybar {
     transition-duration: .5s;
 }
 
+#workspaces,
 #clock,
 #pulseaudio,
 #temperature,
@@ -25,7 +26,7 @@ window#waybar {
 #custom-quit,
 #custom-lock
 {
-    color: @base;
+    color: @text;
     padding: 0 8px;
 }
 
@@ -33,35 +34,23 @@ window#waybar {
 #hardware,
 #pulseaudio,
 #clock,
+#workspaces,
 #power{
+    background-color: @overlay;
     margin-top: 2px;
     margin-bottom: 1px;
     border-radius: 8px;
 }
 
-#tray {
-    background-color: #f5bde6;
-}
-
-#hardware {
+#custom-arch {
     background-color: @iris;
-}
-
-#clock {
-    background-color: @rose;
-}
-
-#pulseaudio {
-    background-color: @foam;
-}
-
-#power {
-    background-color: @love;
-}
-
-#workspaces {
-    border-radius: 0px 10px 10px 0px;
-    background-color: @surface;
+    color: @base;
+    font-size: 18;
+    padding-left: 8px;
+    padding-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    border-radius: 8px;
 }
 
 button {
@@ -73,9 +62,11 @@ button {
 button:hover {
     background: inherit;
 }
-
+#workspaces {
+    background-color: @base;
+}
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 2px;
     color: @muted;
 }
 

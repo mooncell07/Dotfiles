@@ -3,6 +3,7 @@
     "height": 24,
     "spacing": 4,
     "modules-left": [
+        "custom/arch",
         "niri/workspaces",
     ],
     "modules-center": [
@@ -17,11 +18,22 @@
         "tray",
         "group/power"
     ],
+
+    "custom/arch": {
+        "format": "󰣇 ",
+        "tooltip": false,
+        "on-click": "fuzzel"
+    },
+
     "niri/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
          "warp-on-scroll": false,
          "format": "{icon}",
+    },
+    "niri/window": {
+        "icon": true,
+        "icon-size": 15
     },
     "tray": {
         "spacing": 10
