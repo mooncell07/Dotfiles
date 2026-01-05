@@ -1,7 +1,10 @@
+font=JetBrainsMono Nerd Font 10
 background-color=#26233a
 text-color=#e0def4
 border-color=#c4a7e7
 progress-color=over #31748f
+border-size=1
+border-radius=4
 
 [urgency=high]
 border-color=#eb6f92
