@@ -44,7 +44,7 @@ window#waybar {
 #clock,
 #workspaces,
 #hardware{
-    border-radius: 10px;
+    border-radius: 9px;
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -53,7 +53,8 @@ window#waybar {
 #clock,
 #pulseaudio,
 #hardware {
-    background-color: @overlay;
+    background-color: @surface;
+    border: 1px solid @overlay;
 }
 
 #power {
