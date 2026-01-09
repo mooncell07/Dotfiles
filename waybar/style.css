@@ -17,26 +17,36 @@ window#waybar {
 #memory,
 #disk,
 #custom-reboot,
-#custom-quit,
-#custom-lock {
+#custom-quit{
     padding-right: 12px;
 }
 
+#custom-lock {
+    padding-right: 6px;
+}
+
 #custom-shutdown {
-    padding-left: 2px;
+    padding-left: 6px;
 }
 
 #tray,
 #pulseaudio,
 #clock,
 #workspaces,
-#custom-arch,
+#power,
 #hardware,
-#power {
+#custom-arch {
     padding: 0px 8px;
-    margin-top: 2px;
-    margin-bottom: 1px;
+}
+
+#tray,
+#pulseaudio,
+#clock,
+#workspaces,
+#hardware{
     border-radius: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 #tray,
@@ -47,16 +57,18 @@ window#waybar {
 }
 
 #power {
-    background-color: @iris;
+    background-color: @rose;
     color: @base;
+    border-radius: 12px 0px 0px 12px;
 }
 
 #custom-arch {
-    background-color: @iris;
+    background-color: @rose;
     color: @base;
     font-size: 18px;
-    padding-left: 10px;
+    padding-left: 6px;
     padding-right: 4px;
+    border-radius: 0px 12px 12px 0px;
 }
 
 #window {
